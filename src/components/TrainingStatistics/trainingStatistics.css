@@ -1,0 +1,13 @@
+.statistics__list {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px 0;
+}
+
+.statistics__title-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  
+    margin-bottom: 20px;
+}

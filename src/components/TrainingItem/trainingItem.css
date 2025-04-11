@@ -1,0 +1,18 @@
+.training-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  
+    padding: 10px 0;
+}
+
+.training__item-change {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.training__item-remove {
+    cursor: pointer;
+    width: 20px;
+}
