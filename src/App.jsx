@@ -17,6 +17,11 @@ function App() {
   };
 
   const handleSubmit = (currentForm) => {
+    if (currentForm.date === '' || currentForm.km === '') {
+      setForm({ date: '', km: '' }); // сброс невалидного инпута
+      return;
+    };
+
     const newList = createNewList(currentForm); // массив с актуальными данными
     setList(newList); // актуализация массива с данными
     setForm({ date: '', km: '' }); // очистка полей формы

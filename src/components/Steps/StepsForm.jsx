@@ -3,14 +3,30 @@ import './stepsForm.css';
 export default function StepsForm ({ form,  onInputChange, onSubmit }) {
     const changeInput = ({ target }) => {
         const { name, value } = target;
-        const currentForm = { ...form, [name]: value.trim().replace(',', '.') };
+        const currentForm = { ...form, [name]: value.trim().replace('/', '.') };
         onInputChange(currentForm);
     }
 
     const submitForm = (event) => {
         event.preventDefault();
-        onSubmit({ ...form })  
+        validateForm();
     };
+
+    // валидация данных формы
+    const validateForm = () => {
+        const datePattern = /(\d{2}).(\d{2}).(\d{4})/;
+        if(!form.date.match(datePattern)){
+            onSubmit({ ...form, date: ''}); //сброс инпута с датой;
+            return;
+        };
+
+       if (isNaN(form.km)) {
+        onSubmit({ ...form, km: '' }); // сброс инпута с километражем
+        return;
+        }
+  
+      onSubmit({ ...form });
+    }
 
     return (
         <form className="form" onSubmit={submitForm}>
